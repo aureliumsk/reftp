@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+	<title>{{.Name}} - reftp</title>
+  </head>
+  <body>
+	<h2>{{.Name}}</h2>
+	<p>Загружен: {{.CreatedAt.Format "2006/01/02 - 15:04"}}</p>
+	{{if .ModifiedAt.Valid}}
+	<p>Изменён: {{.ModifiedAt.Time.Format "2006/01/02 - 15:04"}}</p>
+	{{end}}
+	<p>Описание: {{.Desc}}</p>
+	<a href="{{printf "/files/download/%s" .Name}}" download="{{.Name}}">Скачать</a>
+  </body>
+</html>
